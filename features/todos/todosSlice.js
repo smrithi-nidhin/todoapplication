@@ -11,12 +11,18 @@ const initialState = {
 export default function todosReducer(state = initialState, action) {
   switch (action.type) {
     case 'todos/todoAdded': {
+      
       return {
         ...state,
         entities:[...state.entities, action.payload],
         
       }
     }
+    case 'todos/login':{
+      return { ...state,
+         ...action.payload,
+        isLoggedIn:true }
+      }
     case 'todos/todoToggled': {
       return {
         ...state,
@@ -87,7 +93,10 @@ export default function todosReducer(state = initialState, action) {
 }
 
 export const todoAdded = (todo) => ({ type: 'todos/todoAdded', payload: todo })
-
+export const login = value => ({
+  type: "USER_LOGIN",
+  payload: value
+});
 export const todoToggled = (todoId) => ({
   type: 'todos/todoToggled',
   payload: todoId,

@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux'
 
 import { saveNewTodo } from '../todos/todosSlice'
 import { toast } from 'react-toastify';
+import Login from '../todos/Login';
+import { name } from 'faker';
 toast.configure()
 const Header = () => {
   const [text, setText] = useState('')
@@ -20,6 +22,7 @@ const Header = () => {
 
   return (
     <header className="header">
+  
       <input
         className="new-todo" 
         placeholder="Enter your Todos...."
