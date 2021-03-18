@@ -8,8 +8,11 @@ import './api/server'
 
 import store from './store'
 import { fetchTodos } from './features/todos/todosSlice'
+import { loadState, saveState } from './features/localStorage'
 
-store.dispatch(fetchTodos())
+const persistedState = loadState();
+store.subscribe(() => saveState(store.getState()))
+//store.dispatch(fetchTodos())
 
 ReactDOM.render(
   <React.StrictMode>
